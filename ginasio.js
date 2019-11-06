@@ -17,7 +17,7 @@ class Ginasio {
     }
 
     getLuz(x, y, z) {
-        this.luz = new THREE.AmbientLight(0x666666, 1);
+        this.luz = new THREE.AmbientLight(0xaaaaff, 1);
         this.luz.position.set(x, y, z);
         return this.luz;
     }
@@ -37,10 +37,13 @@ class Ginasio {
     getWall(largura, altura) {
         var geometria = new THREE.PlaneGeometry(largura, altura, 100, 100);
         geometria.rotateX(- Math.PI / 2);
+
+        var texture = new THREE.TextureLoader().load('sky.jpg');
         var material = new THREE.MeshPhongMaterial({
-            map: new THREE.TextureLoader().load('sky.jpg')
+            map: texture
         });
-        material.side= THREE.DoubleSide;
+
+
         var quadra = new THREE.Mesh(geometria, material);
         quadra.receiveShadow = true;
         return quadra;
@@ -124,5 +127,12 @@ class Ginasio {
     getCanvas() {
         return this.canvas;
     }
+
+    // var texture = new THREE.TextureLoader().load('sky.jpg', function(texture){
+
+    //     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    //     texture.offset.set(0,0);
+    //     texture.repeat.set(2,1)
+    // });
 
 }
