@@ -33,11 +33,11 @@ function init() {
 
     // Testando sombras - Parcialmente implementada, tentar suavizar sombra, sombra mt chaoda
     var light = new THREE.DirectionalLight(0xffa500, 1);
-    light.position.set(0, 10, -290);
-    light.position.multiplyScalar(1.3);
+    light.position.set(0, 10, -375);
     light.castShadow = true;
     light.shadow.mapSize.width = window.innerWidth;
     light.shadow.mapSize.height = window.innerHeight;
+
     // var d = 80;
     // light.shadow.camera.left = - d;
     // light.shadow.camera.right = d;
@@ -45,7 +45,6 @@ function init() {
     // light.shadow.camera.bottom = - d;
     // light.shadow.camera.far = 1000;
     cena.add(light);
-
   
     // Fim teste luz e sombra
     //Controles
@@ -58,15 +57,9 @@ function init() {
     raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, - 1, 0), 0, 10);
     
 
-    var geometry = new THREE.BoxGeometry( 10, 10, 10 );
-    var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
-    var cube = new THREE.Mesh( geometry, material );
-    cube.position.set(0,10,-100);
+   
 
-    var helper = new THREE.DirectionalLightHelper( light, 5 );
-    cena.add( cube ); 
-    light.target = cube;
-    cena.add( helper );
+    
    
 
 
@@ -84,6 +77,7 @@ function init() {
     parede1.position.y = 75;
     cena.add(parede1);
 
+
     //Parede esquerda
     var parede2 = ginasio.getWall(480, 150);
     parede2.rotation.x = Math.PI/2;
@@ -92,6 +86,7 @@ function init() {
     parede2.position.y = 75;
     parede2.position.z = -138;
     cena.add(parede2);
+
     //Parede direita
     var parede3 = ginasio.getWall(480, 150);
     parede3.rotation.x = Math.PI/2;

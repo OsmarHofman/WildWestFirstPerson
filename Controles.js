@@ -11,7 +11,8 @@ class Controles{
                     break;
                 case 37: // esquerda
                 case 65: // a
-                    movEsquerda = true; break;
+                    movEsquerda = true;
+                    break;
                 case 40: // atrás
                 case 83: // s
                     movTras = true;
@@ -19,10 +20,6 @@ class Controles{
                 case 39: // direita
                 case 68: // d
                     movDireita = true;
-                    break;
-                case 32: // espaço
-                    if (pular === true) velocidade.y += 200;
-                    pular = false;
                     break;
             }
         };
@@ -77,6 +74,9 @@ class Controles{
                 velocidade.y = 0;
                 controles.getObject().position.y = 10;
                 pular = true;
+            }
+            if(delta > 0.015 && delta < 0.017){
+                velocidade.y = 0;
             }
             prevTime = time;
         }

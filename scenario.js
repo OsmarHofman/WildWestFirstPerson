@@ -67,7 +67,7 @@ class Scenario {
     buildFlatSun(r, seg) {
         var sunGeometry = new THREE.CircleGeometry(r, seg, 0, Math.PI);
         var sunMaterial = new THREE.MeshBasicMaterial({
-            color: 0xffff00
+            color: 0xff9d00
         });
         var sol = new THREE.Mesh(sunGeometry, sunMaterial);
         sol.castShadow = false;

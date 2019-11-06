@@ -17,7 +17,7 @@ class Ginasio {
     }
 
     getLuz(x, y, z) {
-        this.luz = new THREE.AmbientLight(0xaaaaff, 1);
+        this.luz = new THREE.AmbientLight(0xeeeeee, 0.7);
         this.luz.position.set(x, y, z);
         return this.luz;
     }
