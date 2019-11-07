@@ -65,7 +65,6 @@ class Controles{
             if (movDireita) velocidade.x += 400.0 * delta;
             if (isOnObject === true) {
                 velocidade.y = Math.max(0, velocidade.y);
-                pular = true;
             }
             controles.getObject().translateX(velocidade.x * delta);
             controles.getObject().translateY(velocidade.y * delta);
@@ -73,10 +72,6 @@ class Controles{
             if (controles.getObject().position.y < 10) {
                 velocidade.y = 0;
                 controles.getObject().position.y = 10;
-                pular = true;
-            }
-            if(delta > 0.015 && delta < 0.017){
-                velocidade.y = 0;
             }
             prevTime = time;
         }
