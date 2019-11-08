@@ -13,9 +13,15 @@ var velocidade = new THREE.Vector3();
 var pause = new Pause();
 pause.pauseMouse();
 
+
+//teste physics
+Physijs.scripts.worker = 'physijs_worker.js';
+Physijs.scripts.ammmo = 'ammo.js';
+
+
 //Câmera
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
-var cena = new THREE.Scene();
+var cena = new Physijs.Scene;
 
 // AudioListener pra camera
 var listener = new THREE.AudioListener();
@@ -30,18 +36,18 @@ var luz = cenario.buildAmbientLight(0, 0, 2000);
 cena.add(luz);
 
 // Direcional
-var sunLight = new THREE.DirectionalLight(0xffa500, 1);
-sunLight.position.set(0, 10, -375);
+var sunLight = new THREE.PointLight(0xffa500, 1);
+sunLight.position.set(0, 100, -300);
 sunLight.castShadow = true;
 sunLight.shadow.mapSize.width = window.innerWidth;
 sunLight.shadow.mapSize.height = window.innerHeight;
 
-// var d = 80;
-// sunLight.shadow.camera.left = - d;
-// sunLight.shadow.camera.right = d;
-// sunLight.shadow.camera.top = d;
-// sunLight.shadow.camera.bottom = - d;
-// sunLight.shadow.camera.far = 1000;
+var d = 80;
+sunLight.shadow.camera.left = - d;
+sunLight.shadow.camera.right = d;
+sunLight.shadow.camera.top = d;
+sunLight.shadow.camera.bottom = - d;
+sunLight.shadow.camera.far = 1000;
 
 cena.add(sunLight);
 
@@ -94,6 +100,7 @@ cena.add(parede4);
 var saloonDireita = cenario.buildSaloon(480, 25);
 saloonDireita.rotation.y = - Math.PI / 2;
 saloonDireita.position.set(95, 12, -138);
+saloonDireita.receiveShadow = true;
 cena.add(saloonDireita);
 
 //Fachadas da esquerda
@@ -125,11 +132,42 @@ audioLoader.load( 'old-town-road.mp3', function( buffer ) {
 
 sol.add(sound);
 
+//adicionando objetos
+    var palanque = cenario.getHorseKeeper(90,0);
+    cena.add(palanque);
+
+    var palanque2 = cenario.getHorseKeeper(90,-80);
+    cena.add(palanque2);
+
+    var palanque3 = cenario.getHorseKeeper(90,-180);
+    cena.add(palanque3);
+
+    var palanque4 = cenario.getHorseKeeper(-90,-0);
+    cena.add(palanque4);
+
+    var palanque5 = cenario.getHorseKeeper(-90,-80);
+    cena.add(palanque5);
+
+    var palanque6 = cenario.getHorseKeeper(-90,-180);
+    cena.add(palanque6);
+
+    box = new Physijs.BoxMesh(
+        new THREE.CubeGeometry( 10, 10, 10 ),
+        new THREE.MeshPhongMaterial({ color: 0x966B00 })
+    );
+    box.position.set(1,10,20);
+    box.receiveShadow = true;
+    box.castShadow = true;
+    cena.add( box );
+
+
+
 //Render
 var render = cenario.getRender();
 render.setPixelRatio(window.devicePixelRatio);
 render.setSize(window.innerWidth, window.innerHeight);
 render.shadowMap.enabled = true;
+render.shadowMap.type = THREE.BasicShadowMap;
 window.addEventListener('resize', onWindowResize, false);
 
 canvasInitialize();
@@ -148,6 +186,7 @@ function onWindowResize() {
 }
 
 function animacao() {
+    cena.simulate();
     requestAnimationFrame(animacao);
     controlesMovimento.ativaMouse(controlesAtivado);
     render.render(cena, camera);

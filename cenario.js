@@ -23,12 +23,13 @@ class Cenario {
     }
 
     buildFloor(largura, altura) {
+        
         var geometria = new THREE.PlaneGeometry(largura, altura, 100, 100);
         geometria.rotateX(- Math.PI / 2);
         var material = new THREE.MeshPhongMaterial({
             map: new THREE.TextureLoader().load('Wasteland.jpg')
         });
-        var chao = new THREE.Mesh(geometria, material);
+        var chao = new Physijs.PlaneMesh(geometria, material,0);
         chao.receiveShadow = true;
         return chao;
     }
@@ -58,7 +59,7 @@ class Cenario {
 
     buildSky(largura, altura) {
         var geometria = new THREE.PlaneGeometry(largura, altura, 100, 100);
-        geometria.rotateX(- Math.PI / 2);
+        geometria.rotateX( Math.PI / 2);
         var material = new THREE.MeshPhongMaterial({
             map: new THREE.TextureLoader().load('circular-sky.jpg')
         });
@@ -81,6 +82,42 @@ class Cenario {
         saloon.receiveShadow = true;
         return saloon;
     }
+
+    getHorseKeeper(x,z) {
+        var poleGeo = new THREE.CylinderBufferGeometry(0.5, 0.5, 10, 64);
+        var poleMat = new THREE.MeshPhongMaterial({color:0x964B00});
+        var poste1 = new THREE.Mesh(poleGeo, poleMat);
+        poste1.position.y = 5;
+        poste1.position.z = -5;
+        poste1.receiveShadow = true;
+        poste1.castShadow = true;
+
+        var poste2 = new THREE.Mesh(poleGeo, poleMat);
+        poste2.position.y = 5;
+        poste2.position.z = 8;
+        poste2.receiveShadow = true;
+        poste2.castShadow = true;
+
+        var posteCima = new THREE.Mesh(new THREE.CylinderBufferGeometry(0.5, 0.5, 13, 64), poleMat);
+        posteCima.rotation.x = 1.57;
+        posteCima.position.y = 9.5;
+        posteCima.position.z = 1.5;
+        posteCima.receiveShadow = true;
+        posteCima.castShadow = true;
+
+        var group = new THREE.Group();
+        group.add(poste1);
+        group.add(poste2);
+        group.add(posteCima);
+        group.position.x = x;
+        group.position.z = z;
+        group.receiveShadow = true;
+        group.castShadow = true;
+
+        return group;
+    }
+
+
 
     getRender() {
         return this.render;
