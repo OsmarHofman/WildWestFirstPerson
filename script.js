@@ -1,3 +1,4 @@
+
 var canvas;
 var objects = [];
 var cenario = new Cenario();
@@ -150,6 +151,30 @@ sol.add(sound);
 
     var palanque6 = cenario.getHorseKeeper(-90,-180);
     cena.add(palanque6);
+
+
+
+    //Agua cavalos
+    var waterSupply1 = cenario.getWaterSupply(87,-20);
+    cena.add(waterSupply1);
+
+    var water1 = cenario.getWater(87,-20);
+    cena.add(water1);
+
+
+    var waterSupply2 = cenario.getWaterSupply(87,-100);
+    cena.add(waterSupply2);
+
+    var water2 = cenario.getWater(87,-100);
+    cena.add(water2);
+
+    var waterSupply3 = cenario.getWaterSupply(87,-200);
+    cena.add(waterSupply3);
+
+    var water3 = cenario.getWater(87,-200);
+    cena.add(water3);
+
+
 
     box = new Physijs.BoxMesh(
         new THREE.CubeGeometry( 10, 10, 10 ),
