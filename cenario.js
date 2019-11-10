@@ -85,6 +85,20 @@ class Cenario {
         return saloon;
     }
 
+
+    buildHay(x, y, z) {
+        var hay = new Physijs.BoxMesh(
+            new THREE.CubeGeometry(10, 10, 10),
+            new THREE.MeshPhongMaterial({
+                map: new THREE.TextureLoader().load('hay.jpg')
+            })
+        );
+        hay.position.set(x, y, z);
+        hay.receiveShadow = true;
+        hay.castShadow = true;
+        return hay;
+    }
+
     getHorseKeeper(x, z) {
         var poleGeo = new THREE.CylinderBufferGeometry(0.5, 0.5, 10, 64);
         var poleMat = new THREE.MeshPhongMaterial({
@@ -121,8 +135,8 @@ class Cenario {
         return group;
     }
 
-    getWaterSupply(x,z) {
-        var geometry = new THREE.CylinderGeometry(5, 5, 20, 32,1,false,5,2.9);
+    getWaterSupply(x, z) {
+        var geometry = new THREE.CylinderGeometry(5, 5, 20, 32, 1, false, 5, 2.9);
         var material = new THREE.MeshPhongMaterial({
             color: 0x964B00
         });
@@ -134,7 +148,7 @@ class Cenario {
         cylinder.position.x = x;
         cylinder.position.y = 5;
         cylinder.position.z = z;
-        cylinder.rotation.x = Math.PI /2;
+        cylinder.rotation.x = Math.PI / 2;
         cylinder.castShadow = true;
         cylinder.receiveShadow = true;
         return cylinder;
@@ -143,34 +157,34 @@ class Cenario {
 
 
 
-    getWater(x,z){
-        var waterGeometry = new THREE.PlaneBufferGeometry( 8, 20 );
-				var water = new THREE.Water( waterGeometry, {
-					color: '#ffffff',
-					scale: 4,
-					flowDirection: new THREE.Vector2( 1, 1 ),
-					textureWidth: 1024,
-					textureHeight: 1024
-                } );
-                water.position.x = x;
-                water.position.y = 2;
-                water.position.z = z;
-                water.rotation.x = Math.PI * - 0.5;
-                return water;
+    getWater(x, z) {
+        var waterGeometry = new THREE.PlaneBufferGeometry(8, 20);
+        var water = new THREE.Water(waterGeometry, {
+            color: '#ffffff',
+            scale: 4,
+            flowDirection: new THREE.Vector2(1, 1),
+            textureWidth: 1024,
+            textureHeight: 1024
+        });
+        water.position.x = x;
+        water.position.y = 2;
+        water.position.z = z;
+        water.rotation.x = Math.PI * - 0.5;
+        return water;
     }
 
 
-    getHorse(){
-        var loader = new TDSLoader( );
-				loader.setResourcePath( 'models/3ds/portalgun/textures/' );
-				loader.load( 'standinghorse.3DS', function ( object ) {
-					object.traverse( function ( child ) {
-						if ( child.isMesh ) {
-							child.material.normalMap = normal;
-						}
-					} );
-                    return object
-                } );
+    getHorse() {
+        var loader = new TDSLoader();
+        loader.setResourcePath('models/3ds/portalgun/textures/');
+        loader.load('standinghorse.3DS', function (object) {
+            object.traverse(function (child) {
+                if (child.isMesh) {
+                    child.material.normalMap = normal;
+                }
+            });
+            return object
+        });
     }
 
 

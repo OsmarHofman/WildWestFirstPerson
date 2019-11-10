@@ -161,7 +161,6 @@ sol.add(sound);
     var water1 = cenario.getWater(87,-20);
     cena.add(water1);
 
-
     var waterSupply2 = cenario.getWaterSupply(87,-100);
     cena.add(waterSupply2);
 
@@ -174,17 +173,55 @@ sol.add(sound);
     var water3 = cenario.getWater(87,-200);
     cena.add(water3);
 
+    var waterSupply4 = cenario.getWaterSupply(-87,-20);
+    waterSupply4.rotation.z = Math.PI;
+    cena.add(waterSupply4);
+
+    var water4 = cenario.getWater(-87,-20);
+    cena.add(water4);
+
+    var waterSupply5 = cenario.getWaterSupply(-87,-100);
+    waterSupply5.rotation.z = Math.PI;
+    cena.add(waterSupply5);
+
+    var water5 = cenario.getWater(-87,-100);
+    cena.add(water5);
+
+    var waterSupply6 = cenario.getWaterSupply(-87,-200);
+    waterSupply6.rotation.z = Math.PI;
+    cena.add(waterSupply6);
+
+    var water6 = cenario.getWater(-87,-200);
+    cena.add(water6);
 
 
-    box = new Physijs.BoxMesh(
-        new THREE.CubeGeometry( 10, 10, 10 ),
-        new THREE.MeshPhongMaterial({ color: 0x966B00 })
-    );
-    box.position.set(1,10,20);
-    box.receiveShadow = true;
-    box.castShadow = true;
-    cena.add( box );
+    //Feno
+    var feno1 = cenario.buildHay(80,5,20);
+    cena.add( feno1 );
 
+    var feno2 = cenario.buildHay(80,5,-130);
+    cena.add( feno2 );
+
+    var feno3 = cenario.buildHay(85,5,-155);
+    cena.add( feno3 );
+
+    var feno4 = cenario.buildHay(-80,5,-40);
+    cena.add( feno4 );
+
+    var feno5 = cenario.buildHay(-40,5,-100);
+    cena.add( feno5 );
+
+    var feno6 = cenario.buildHay(-28,5,-100);
+    cena.add( feno6 );
+
+    var feno7 = cenario.buildHay(-32,5,-114);
+    cena.add( feno7 );
+
+    var feno7 = cenario.buildHay(-27,18,-115);
+    cena.add( feno7 );
+
+    var feno8 = cenario.buildHay(-45,18,-100);
+    cena.add( feno8 );
 
 
 //Render
