@@ -163,34 +163,34 @@ var waterSupply2 = cenario.getWaterSupply(87, -100);
 cena.add(waterSupply2);
 
 var water2 = cenario.getWater(87, -100);
-cena.add(water2);
+//cena.add(water2);
 
 var waterSupply3 = cenario.getWaterSupply(87, -200);
 cena.add(waterSupply3);
 
 var water3 = cenario.getWater(87, -200);
-cena.add(water3);
+//cena.add(water3);
 
 var waterSupply4 = cenario.getWaterSupply(-87, -20);
 waterSupply4.rotation.z = Math.PI;
 cena.add(waterSupply4);
 
 var water4 = cenario.getWater(-87, -20);
-cena.add(water4);
+//cena.add(water4);
 
 var waterSupply5 = cenario.getWaterSupply(-87, -100);
 waterSupply5.rotation.z = Math.PI;
 cena.add(waterSupply5);
 
 var water5 = cenario.getWater(-87, -100);
-cena.add(water5);
+//cena.add(water5);
 
 var waterSupply6 = cenario.getWaterSupply(-87, -200);
 waterSupply6.rotation.z = Math.PI;
 cena.add(waterSupply6);
 
 var water6 = cenario.getWater(-87, -200);
-cena.add(water6);
+//cena.add(water6);
 
 
 //Feno

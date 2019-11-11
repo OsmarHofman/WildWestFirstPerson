@@ -136,7 +136,7 @@ class Cenario {
     }
 
     getWaterSupply(x, z) {
-        var geometry = new THREE.CylinderGeometry(5, 5, 20, 32, 1, false, 5, 2.9);
+        var geometry = new THREE.CylinderGeometry(5, 5, 20, 32, 1, false, 5, Math.PI);
         var material = new THREE.MeshPhongMaterial({
             color: 0x964B00
         });
