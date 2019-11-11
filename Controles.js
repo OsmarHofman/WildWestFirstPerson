@@ -72,7 +72,7 @@ class Controles {
                 this.movimenta(delta);
             }
             if (movDireita) {
-            velocidade.x += 400.0 * delta;
+                velocidade.x += 400.0 * delta;
                 this.movimenta(delta);
             }
             if (isOnObject === true) {

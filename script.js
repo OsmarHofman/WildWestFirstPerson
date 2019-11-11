@@ -26,10 +26,10 @@ var cena = new Physijs.Scene;
 
 // AudioListener pra camera
 var listener = new THREE.AudioListener();
-camera.add( listener );
+camera.add(listener);
 
 // Criando um PositionalAudio
-var sound = new THREE.PositionalAudio( listener );
+var sound = new THREE.PositionalAudio(listener);
 
 
 //Luz Ambiente
@@ -123,105 +123,103 @@ cena.add(sol);
 
 // Carregando e adicionando som ao Sol
 var audioLoader = new THREE.AudioLoader();
-audioLoader.load( 'old-town-road.mp3', function( buffer ) {
-	sound.setBuffer( buffer );
-    sound.setLoop( true );
-    sound.setRefDistance( 5 );
-	sound.setVolume( 1 );
-	sound.play();
+audioLoader.load('old-town-road.mp3', function (buffer) {
+    sound.setBuffer(buffer);
+    sound.setLoop(true);
+    sound.setRefDistance(5);
+    sound.setVolume(1);
+    sound.play();
 });
 
 sol.add(sound);
 
 //adicionando objetos
-    var palanque = cenario.getHorseKeeper(90,0);
-    cena.add(palanque);
+var palanque = cenario.getHorseKeeper(90, 0);
+cena.add(palanque);
 
-    var palanque2 = cenario.getHorseKeeper(90,-80);
-    cena.add(palanque2);
+var palanque2 = cenario.getHorseKeeper(90, -80);
+cena.add(palanque2);
 
-    var palanque3 = cenario.getHorseKeeper(90,-180);
-    cena.add(palanque3);
+var palanque3 = cenario.getHorseKeeper(90, -180);
+cena.add(palanque3);
 
-    var palanque4 = cenario.getHorseKeeper(-90,-0);
-    cena.add(palanque4);
+var palanque4 = cenario.getHorseKeeper(-90, -0);
+cena.add(palanque4);
 
-    var palanque5 = cenario.getHorseKeeper(-90,-80);
-    cena.add(palanque5);
+var palanque5 = cenario.getHorseKeeper(-90, -80);
+cena.add(palanque5);
 
-    var palanque6 = cenario.getHorseKeeper(-90,-180);
-    cena.add(palanque6);
+var palanque6 = cenario.getHorseKeeper(-90, -180);
+cena.add(palanque6);
 
+//Agua cavalos
+var waterSupply1 = cenario.getWaterSupply(87, -20);
+cena.add(waterSupply1);
 
+var water1 = cenario.getWater(87, -20);
+cena.add(water1);
 
-    //Agua cavalos
-    var waterSupply1 = cenario.getWaterSupply(87,-20);
-    cena.add(waterSupply1);
+var waterSupply2 = cenario.getWaterSupply(87, -100);
+cena.add(waterSupply2);
 
-    var water1 = cenario.getWater(87,-20);
-    cena.add(water1);
+var water2 = cenario.getWater(87, -100);
+cena.add(water2);
 
-    var waterSupply2 = cenario.getWaterSupply(87,-100);
-    cena.add(waterSupply2);
+var waterSupply3 = cenario.getWaterSupply(87, -200);
+cena.add(waterSupply3);
 
-    var water2 = cenario.getWater(87,-100);
-    cena.add(water2);
+var water3 = cenario.getWater(87, -200);
+cena.add(water3);
 
-    var waterSupply3 = cenario.getWaterSupply(87,-200);
-    cena.add(waterSupply3);
+var waterSupply4 = cenario.getWaterSupply(-87, -20);
+waterSupply4.rotation.z = Math.PI;
+cena.add(waterSupply4);
 
-    var water3 = cenario.getWater(87,-200);
-    cena.add(water3);
+var water4 = cenario.getWater(-87, -20);
+cena.add(water4);
 
-    var waterSupply4 = cenario.getWaterSupply(-87,-20);
-    waterSupply4.rotation.z = Math.PI;
-    cena.add(waterSupply4);
+var waterSupply5 = cenario.getWaterSupply(-87, -100);
+waterSupply5.rotation.z = Math.PI;
+cena.add(waterSupply5);
 
-    var water4 = cenario.getWater(-87,-20);
-    cena.add(water4);
+var water5 = cenario.getWater(-87, -100);
+cena.add(water5);
 
-    var waterSupply5 = cenario.getWaterSupply(-87,-100);
-    waterSupply5.rotation.z = Math.PI;
-    cena.add(waterSupply5);
+var waterSupply6 = cenario.getWaterSupply(-87, -200);
+waterSupply6.rotation.z = Math.PI;
+cena.add(waterSupply6);
 
-    var water5 = cenario.getWater(-87,-100);
-    cena.add(water5);
-
-    var waterSupply6 = cenario.getWaterSupply(-87,-200);
-    waterSupply6.rotation.z = Math.PI;
-    cena.add(waterSupply6);
-
-    var water6 = cenario.getWater(-87,-200);
-    cena.add(water6);
+var water6 = cenario.getWater(-87, -200);
+cena.add(water6);
 
 
-    //Feno
-    var feno1 = cenario.buildHay(80,5,20);
-    cena.add( feno1 );
+//Feno
+var feno1 = cenario.buildHay(80, 5, 20);
+cena.add(feno1);
 
-    var feno2 = cenario.buildHay(80,5,-130);
-    cena.add( feno2 );
+var feno2 = cenario.buildHay(80, 5, -130);
+cena.add(feno2);
 
-    var feno3 = cenario.buildHay(85,5,-155);
-    cena.add( feno3 );
+var feno3 = cenario.buildHay(85, 5, -155);
+cena.add(feno3);
 
-    var feno4 = cenario.buildHay(-80,5,-40);
-    cena.add( feno4 );
+var feno4 = cenario.buildHay(-80, 5, -40);
+cena.add(feno4);
 
-    var feno5 = cenario.buildHay(-40,5,-100);
-    cena.add( feno5 );
+var feno5 = cenario.buildHay(-40, 5, -100);
+cena.add(feno5);
 
-    var feno6 = cenario.buildHay(-28,5,-100);
-    cena.add( feno6 );
+var feno6 = cenario.buildHay(-28, 5, -100);
+cena.add(feno6);
 
-    var feno7 = cenario.buildHay(-32,5,-114);
-    cena.add( feno7 );
+var feno7 = cenario.buildHay(-32, 5, -114);
+cena.add(feno7);
 
-    var feno7 = cenario.buildHay(-27,18,-115);
-    cena.add( feno7 );
+var feno7 = cenario.buildHay(-27, 18, -115);
+cena.add(feno7);
 
-    var feno8 = cenario.buildHay(-45,18,-100);
-    cena.add( feno8 );
+var feno8 = cenario.buildHay(-45, 18, -100);
+cena.add(feno8);
 
 
 //Render
